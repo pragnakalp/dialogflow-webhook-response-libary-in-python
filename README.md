@@ -273,4 +273,4 @@ Return this as your main fulfillment response.
 
 We are working to add more responses in the future. Please give your feedback and do contribute if you like.
 
-> Developed by Pragnakalp
+> Developed by [Pragnakalp Solutions - Artificial Intelligence, Machine Learning, Deep Learning, Chatbots Development](https://www.pragnakalp.com/)
