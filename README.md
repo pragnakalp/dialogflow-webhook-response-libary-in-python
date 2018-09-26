@@ -267,6 +267,8 @@ main_response(fulfillment_text, fulfillment_messages=None, output_contexts=None,
 ***output_contextstext*** - Output contexts object
 ***followup_event_input*** - Followup event input object
 
+Return this as your main fulfillment response.
+
 ---
 
 We are working to add more responses in the future. Please give your feedback and do contribute if you like.
