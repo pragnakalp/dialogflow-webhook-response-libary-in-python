@@ -229,32 +229,6 @@ class facebook_response():
                 "platform": self.platform
             }
 
-    def basic_card(self, title, buttons):
-        # title should not be empty
-        if title == "":
-            raise Exception("Title is required for basic card in facebook.")
-        else:
-            # buttos_json to store buttons
-            buttons_json = []
-            for button in buttons:
-                buttons_json.append(
-                    {
-                        # text of the button
-                        "text": str(button[0]),
-                        # url to be called
-                        "postback": str(button[1])
-                    }
-                )
-
-            # return the card response JSON
-            return {
-                "card": {
-                    "title": str(title),
-                    "buttons": buttons_json
-                },
-                "platform": self.platform
-            }
-
     def quick_replies(self, title, quick_replies_list):
         if title == "":
             raise Exception("Title is required for basic card in facebook.")
@@ -333,32 +307,6 @@ class telegram_response():
             return {
                 "text": {
                     "text": text_obj
-                },
-                "platform": self.platform
-            }
-
-    def basic_card(self, title, buttons):
-        # title should not be empty
-        if title == "":
-            raise Exception("Title is required for basic card in facebook.")
-        else:
-            # buttos_json to store buttons
-            buttons_json = []
-            for button in buttons:
-                buttons_json.append(
-                    {
-                        # text of the button
-                        "text": str(button[0]),
-                        # url to be called
-                        "postback": str(button[1])
-                    }
-                )
-
-            # return the card response JSON
-            return {
-                "card": {
-                    "title": str(title),
-                    "buttons": buttons_json
                 },
                 "platform": self.platform
             }
