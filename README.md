@@ -64,10 +64,10 @@ aog_sr = aog.simple_response([
 basic_card(title, subtitle="", formattedText="", image=None, buttons=None)
 ```
 
-***title***  is the title of card - string
-***subtitle*** is the subtitle of the card - string
-***formattedText*** is the description of the card - limited markdown
-***image*** display image in the card - list
+***title***  is the title of card - string <br/>
+***subtitle*** is the subtitle of the card - string<br>
+***formattedText*** is the description of the card - limited markdown<br>
+***image*** display image in the card - list<br>
 ```python
 image = [imageUri, accessibilityText]
 ```
