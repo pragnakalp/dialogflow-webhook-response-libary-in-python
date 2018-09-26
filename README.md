@@ -9,7 +9,9 @@ Using this libray you can build the JSON objects with few line.
 ## How to use
 To get started just import all the functions from the library using the following statement
 
- `from df_response_lib import *`
+ ```python
+ from df_response_lib import *
+ ```
 
 ## Supported Responses
 
@@ -204,7 +206,69 @@ buttons = [
 
 fb_card = fb.card_response(title, buttons)
 ```
+
+## **Dialogflow Fulfillment Responses**
+### **Fulfillment Text**
+```python
+fulfillment_text(fulfillmentText)
+```
+***fulfillmentText*** - defult response text
+ex.
+```python
+text = "This is a fulfillment text"
+df_fft = main_response.fulfillment_text(text)
+```
+### **Fulfillment Messages**
+```python
+fulfillment_messages(self, response_objects)
+```
+***response_objects*** - list of supported response (any of the above)
+```python
+[aog_sr, aog_list, aog_suggestions, fb_text, fb_card]
+```
+ex.
+```python
+res_objects = [aog_sr, aog_list, aog_suggestions]
+ff_msgs = main_response.fulfillment_messages(res_objects)
+```
+### **Output Contexts**
+```python
+output_contexts(session, contexts)
+```
+***session*** - session Id of the request
+***contexts*** - list of contexts
+```python
+[
+	['context_name', 'lifespanCount', 
+		{
+			'paramter_name': 'value'
+		}	
+	]
+]
+```
+### **Followup Event Input**
+```python
+followup_event_input(name, parameters)
+```
+***name*** - event name
+***paramters*** - event parameters
+```python
+{
+	'parameter_name': 'values',
+	'another_parameter_name': 'values',
+}
+```
+### **Main Response**
+```python
+main_response(fulfillment_text, fulfillment_messages=None, output_contexts=None, followup_event_input=None):
+```
+***fulfillment_text*** - Fulfillment text object
+***fulfillment_messages*** - Fulfillment messages object
+***output_contextstext*** - Output contexts object
+***followup_event_input*** - Followup event input object
+
 ---
+
 We are working to add more responses in the future. Please give your feedback and do contribute if you like.
 
 > Developed by Pragnakalp
