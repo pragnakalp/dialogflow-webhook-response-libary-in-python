@@ -67,7 +67,7 @@ basic_card(title, subtitle="", formattedText="", image=None, buttons=None)
 ***title***  is the title of card - string <br/>
 ***subtitle*** is the subtitle of the card - string<br>
 ***formattedText*** is the description of the card - limited markdown<br>
-***image*** display image in the card - list<br>
+***image*** display image in the card - list
 ```python
 image = [imageUri, accessibilityText]
 ```
@@ -107,7 +107,7 @@ aog_suggestions = aog.suggestion_chips(suggestions)
 ```python
 link_out_suggestion(title, url)
 ```
-***title*** - Text to be shown in suggestion
+***title*** - Text to be shown in suggestion<br>
 ***url*** - Link URL
 
 ex.
@@ -122,7 +122,7 @@ aog_los = aog.link_out_suggestion(title, url)
 ```python
 list_select(list_title, list_elements)
 ```
-***list_title*** - title of the list
+***list_title*** - title of the list<br>
 ***list_elements*** - list of items of the list select
 ```python
 [
@@ -187,7 +187,7 @@ fb_image = fb.image_response(url)
 ```python
 card_response(title, buttons)
 ```
-***card title*** - title of the card
+***card title*** - title of the card<br>
 ***buttons*** - list of buttons
 ```python
 [
@@ -235,7 +235,7 @@ ff_msgs = main_response.fulfillment_messages(res_objects)
 ```python
 output_contexts(session, contexts)
 ```
-***session*** - session Id of the request
+***session*** - session Id of the request<br>
 ***contexts*** - list of contexts
 ```python
 [
@@ -250,7 +250,7 @@ output_contexts(session, contexts)
 ```python
 followup_event_input(name, parameters)
 ```
-***name*** - event name
+***name*** - event name<br>
 ***paramters*** - event parameters
 ```python
 {
@@ -262,10 +262,10 @@ followup_event_input(name, parameters)
 ```python
 main_response(fulfillment_text, fulfillment_messages=None, output_contexts=None, followup_event_input=None):
 ```
-***fulfillment_text*** - Fulfillment text object
-***fulfillment_messages*** - Fulfillment messages object
-***output_contextstext*** - Output contexts object
-***followup_event_input*** - Followup event input object
+***fulfillment_text*** - Fulfillment text object<br>
+***fulfillment_messages*** - Fulfillment messages object<br>
+***output_contextstext*** - Output contexts object<br>
+***followup_event_input*** - Followup event input object<br>
 
 Return this as your main fulfillment response.
 
