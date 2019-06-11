@@ -6,6 +6,8 @@ Using this libray you can build the JSON objects with few line.
 
 **Supported Platforms** - Actions on Google, Facebook Messenger and Telegram
 
+**Update** - We have published a tutorial to create a basic webhook in Python + Django  [Dialogflow Tutorial: Create Fulfillment Webhook Using Python + Django](https://www.pragnakalp.com/dialogflow-tutorial-create-fulfillment-webhook-using-python-django/) which will be useful to setup this library in Python + Django. We have also published a new [repo to showcase examples of creating different responses using this library](https://github.com/pragnakalp/dialogflow-response-library-implementation-python-django).
+
 ## How to use
 To get started just import all the functions from the library using the following statement
 
@@ -273,4 +275,4 @@ Return this as your main fulfillment response.
 
 We are working to add more responses in the future. Please give your feedback and do contribute if you like.
 
-> Developed by [Pragnakalp Solutions - Artificial Intelligence, Machine Learning, Deep Learning, Chatbots Development](https://www.pragnakalp.com/)
+> Developed by [Pragnakalp Techlabs - Artificial Intelligence, Machine Learning, Deep Learning, Chatbots Development](https://www.pragnakalp.com/)
