@@ -159,30 +159,25 @@ class actions_on_google_response():
     @param suggestions = list of strings
     """    
     def suggestion_chips(self, suggestions):
-        # if there are no suggestions in the list raise an error
-        if len(suggestions) <= 0:
-            raise Exception(
-                "Please provide at least one suggestion in suggestion chips response.")
-        else:
-            # suggestions_json to store the suggestions JSON
-            suggestions_json = []
-            # iterate through the suggestions list
-            for suggestion in suggestions:
-                # append the suggestion to the suggestions_json list
-                suggestions_json.append(
-                    {
-                        # title text to be displayed in the chip
-                        "title": str(suggestion)
-                    }
-                )
-
-            # return the suggestion chips response JSON
-            return {
-                "platform": self.platform,
-                "suggestions": {
-                    "suggestions": suggestions_json
+        # suggestions_json to store the suggestions JSON
+        suggestions_json = []
+        # iterate through the suggestions list
+        for suggestion in suggestions:
+            # append the suggestion to the suggestions_json list
+            suggestions_json.append(
+                {
+                    # title text to be displayed in the chip
+                    "title": str(suggestion)
                 }
+            )
+
+        # return the suggestion chips response JSON
+        return {
+            "platform": self.platform,
+            "suggestions": {
+                "suggestions": suggestions_json
             }
+        }
 
     """
     Actions on Google Linkout suggestions
