@@ -128,16 +128,16 @@ list_select(list_title, list_elements)
 ***list_elements*** - list of items of the list select
 ```python
 [
-	['item_title', 'item_description', item_info=['item_key', item_synonyms=['synonym1', 'synonym2']],
-	['item2_title', 'item2_description', item_info=['item_key', item_synonyms=['synonym1', 'synonym2']]
+	['item_title', 'item_description', item_info=['item_key', item_synonyms=['synonym1', 'synonym2'], ['imageURL', 'imageDescription']],
+	['item2_title', 'item2_description', item_info=['item_key', item_synonyms=['synonym1', 'synonym2'], ['imageURL', 'imageDescription']]
 ]
 ```
 
 ex.
 ```python
 list_elements = [
-	['item_title', 'item_description', ['item_key', ['synonym1', 'synonym2']],
-	['item2_title', 'item2_description', ['item2_key',['synonym1', 'synonym2']]
+	['item_title', 'item_description', ['item_key', ['synonym1', 'synonym2'], ['imageURL', 'imageDescription']],
+	['item2_title', 'item2_description', ['item2_key',['synonym1', 'synonym2'], ['imageURL', 'imageDescription']]
 ]
 
 aog_list = aog.list_select("this is a list', list_elements)
