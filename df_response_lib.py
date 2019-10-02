@@ -1,3 +1,11 @@
+#==============================================================================
+# title              : df_response_lib.py
+# description        : This library simplifies the JSON response building in Python for Dialogflow fulfillment. Using it you can build the JSON objects with few line.
+# author             : Pragnakalp Techlabs
+# email              : letstalk@pragnakalp.com
+# website            : https://www.pragnakalp.com
+#==============================================================================
+
 # Responses for Actions On Google
 class actions_on_google_response():
 
@@ -280,6 +288,14 @@ class facebook_response():
             },
             "platform": self.platform
         }
+
+    def custom_payload(self, payload):
+
+        # return custom payload
+        return {
+                "payload": payload,
+                "platform": self.platform
+            }
 
 # Responses for Telegram
 class telegram_response():
