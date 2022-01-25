@@ -33,6 +33,17 @@ To get started just import all the functions from the library using the followin
  - Image Response
  - Quick replies
 
+**DF-messenger Responses**
+
+ - Simple response
+ - Suggestion chips
+ - Simple title card
+ - Informative card
+ - Image
+ - Small button
+ - Card with multiple options
+ - Accordion small card
+
 **Dialogflow Fulfillment Responses**
 
  - Fulfillment Text
@@ -207,6 +218,143 @@ buttons = [
 ]
 
 fb_card = fb.card_response(title, buttons)
+```
+
+## Dialogflow messenger
+
+### **Simple Response**
+```python
+wb = web_response()
+```
+***texts*** - list of text
+```python
+['simple response']
+```
+ex.
+```python
+texts = ['simple response']
+text_res = wb.simple_response(texts)
+```
+
+### **Suggestion Chips**
+```python
+suggestion_chips(suggestion_chips_list)
+```
+***suggestion_chips_list*** - list of suggestion chips text
+```python
+['reply1', 'reply2', 'reply3']
+```
+ex.
+```python
+replies= ['reply1', 'reply2', 'reply3']
+wb_suggestion_chips = wb.suggestion_chips(replies)
+```
+### **Image Response**
+```python
+image_response(url, accessibility_text)
+```
+***url*** - image URL
+
+ex.
+```python
+accessibility_text = "This is an accessibility text"
+url = "https://www.xyz.com/image.png"
+wb_image = wb.image_response(url, accessibility_text)
+```
+
+### **Card Response**
+
+```python
+card_response(title, sub_title, raw_url, action_link)
+```
+***title*** - title of the card<br>
+***sub_title*** - sub title of the card<br>
+***raw_url*** - URL of image for card<br>
+***action_link*** - redirect URL for card<br>
+
+ex.
+```python
+title = "title"
+sub_title = "subtitle"
+raw_url = "www.xyz.com"
+action_link = "www.abc.com"
+
+wb_card = wb.simple_title_card(title, sub_title, raw_url, action_link)
+```
+
+### **Informative card**
+
+```python
+informative_card(title, text_list)
+```
+***title*** - title of the card<br>
+***text_list*** - list of text to be displayed in the card<br>
+
+ex.
+```python
+title = "title"
+text_list = ["Sample Text1","Sample Text2","Sample Text3"]
+
+informative_card = wb.informative_card(title, text_list)
+```
+
+### **Small button**
+
+```python
+small_button(text, url)
+```
+***text*** - text for button<br>
+***url*** - URL for image to be displayed on the button<br>
+
+ex.
+```python
+text = "Sample text"
+url = "www.xyz.com"
+
+wb_card = wb.small_button(text, url)
+```
+
+### **Card with multiple options**
+
+```python
+card_with_multiple_options(data)
+```
+***data*** - list of dictionary with title and subtitle for the card<br>
+
+ex.
+```python
+data = [
+    {
+        "title": "title1",
+        "subtitle": "subtitle1"
+    },
+    {
+        "title": "title2",
+        "subtitle": "subtitle2"
+    }
+]
+
+wb_card = wb.card_with_multiple_options(data)
+```
+
+### **Accordion card response**
+
+```python
+accordion_small_card(title, sub_title, raw_url, text)
+```
+***title*** - title of the card<br>
+***sub_title*** - sub title of the card<br>
+***raw_url*** - URL of image for the card<br>
+***text*** - text for the card<br>
+
+ex.
+```python
+title = "title"
+sub_title = "subtitle"
+raw_url = "www.xyz.com"
+text = "Sample Text"
+
+wb_card = wb.accordion_small_card(title, sub_title, raw_url, text)
 ```
 
 ## **Dialogflow Fulfillment Responses**

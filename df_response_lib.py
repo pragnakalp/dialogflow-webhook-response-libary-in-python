@@ -378,6 +378,231 @@ class telegram_response():
             "platform": self.platform
         }
 
+# Responses for dialogflow messenger
+class web_response():
+
+    def __init__(self):
+        pass
+
+    def suggestion_chips(self, chips:list):
+        """
+        Dialogflow Messenger Suggestion chips Builder
+        @param chips=list
+        Sample example of display suggestion chips (["suggestion1", "suggestion2", "suggestion3"])
+        """
+        
+        add_chip = []
+        for chip in chips:
+            add_chip.append({
+                "text": chip,
+                "image": {
+                    "src": {
+                        "rawUrl": ""
+                    }
+                },
+                "link": ""
+            })
+
+        return {
+            "payload":
+                {
+                    "richContent":
+                    [
+                        [
+                            {
+                                "type": "chips",
+                                "options": add_chip
+                            }
+                        ]
+                    ]
+
+                }
+        }
+
+
+    def simple_response(self, simpletext:list):
+        """
+        Dialogflow Messenger Simple Response Builder
+        @param simpletext=list (Note: 2D list always)
+        Sample example of display simple response (["Sample text response"])
+        """
+
+        return {
+            "text": {
+                "text": simpletext
+            }
+        }
+
+
+    
+    def simple_title_card(self, title, sub_title, raw_url, action_link):
+        """
+        Dialogflow Messenger Simple Title Card Response Builder
+        @param title=str, sub_title=str, rowUrl=str, action_link=str.
+        Sample example of display_text ex. simple_title_card("Title","Subtitle","www.xyz.com","www.abc.com")
+        """
+    
+        simple_title_cards = []
+        simple_title_cards.append({
+            "type": "info",
+                    "title": title,
+                    "subtitle": sub_title,
+                    "image": {
+                        "src": {
+                            "rawUrl": raw_url
+                        }
+                    },
+            "actionLink": action_link
+        })
+        return {
+            "payload":
+            {
+                "richContent": [
+                    simple_title_cards
+                ]
+            }
+        }
+
+    def informative_card(self, title, data: list):
+        """
+        Dialogflow Messenger Informative Card Response Builder
+        @param title=str, data=list.
+        Sample example of display_text ex. informative_card("Title",["Sample Text1","Sample Text2","Sample Text3"])
+        """
+
+        return {
+            "payload":
+                {
+                    "richContent": [
+                        [
+                            {
+                                "type": "description",
+                                "title": title,
+                                "text": data
+                            }
+                        ]
+                    ]
+                }
+        }
+
+
+    def image_response(self, raw_url, accessibility_text):
+        """
+        Dialogflow Messenger Image Card Response Builder
+        @param rowUrl=str, accessibility_text=str.
+        Sample example of display_text ex. image_card("www.url.com","Sample Text")
+        """
+        
+        return{
+            "payload":
+                {
+                    "richContent":
+                    [
+                        [
+                            {
+                                "type": "image",
+                                "rawUrl": raw_url,
+                                "accessibilityText": accessibility_text
+                            }
+                        ]
+                    ]
+
+                }
+        }
+
+    def small_button(self, text, link):
+        """
+        Dialogflow Messenger Small Button Response Builder
+        @param text=str, link=str.
+        Sample example of display_text ex. small_button("Sample Text","www.url.com")
+        """
+        
+        return{
+            "payload":
+                {
+                    "richContent":
+                    [
+                        [
+                            {
+                                "type": "button",
+                                "icon": {
+                                    "type": "chevron_right",
+                                    "color": "#FF9800"
+                                },
+                                "text": text,
+                                "link": link,
+                                "event": {
+                                    "name": "",
+                                    "languageCode": "",
+                                    "parameters": {}
+                                }
+                            }
+                        ]
+                    ]
+                }
+        }
+
+
+    def card_with_multiple_options(self, data:list):
+        """
+        Dialogflow Messenger Card With Multiple Options Response Builder
+        @param data=list of dict
+        Sample example of display_text ex. card_with_multiple_options([{"title" : "title1", "subtitle" : "subtitle1"}, { "title" : "title2", "subtitle" : "subtitle2"}])
+        """
+        
+        one_card_option = []
+        for i in range(len(data)):
+            one_card_option.append({
+                "type": "list",
+                        "title": data[i]["title"],
+                        "subtitle": data[i]["subtitle"],
+                        "event": {
+                            "name": "",
+                            "languageCode": "",
+                            "parameters": {}
+                        }
+            })
+            if i != len(data):
+                one_card_option.append(
+                    {
+                        "type": "divider"
+                    })
+                
+        return {
+            "payload": {
+                "richContent":
+                    [
+                        one_card_option
+                    ]
+            }
+        }
+
+    def accordion_small_card(self, title, sub_title, raw_url, text):
+        """
+        Dialogflow Messenger Accordion Small Card Response Builder
+        @param title=str, sub_title=str, rawUrl=str, text=str.
+        Sample example of display_text ex. accordion_small_card("Title","Subtitle","www.xyz.com","Sample Text")
+        """
+    
+        return {
+            "payload": {
+                "richContent": [
+                    [
+                        {
+                            "type": "accordion",
+                            "title": title,
+                            "subtitle": sub_title,
+                            "image": {
+                                    "src": {
+                                        "rawUrl": raw_url
+                                    }
+                            },
+                            "text": text
+                        }
+                    ]
+                ]
+            }
+        }
 
 # dialogflow fulfillment response
 class fulfillment_response():
