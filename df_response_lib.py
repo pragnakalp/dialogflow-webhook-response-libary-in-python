@@ -1,10 +1,11 @@
-#==============================================================================
+# ==============================================================================
 # title              : df_response_lib.py
-# description        : This library simplifies the JSON response building in Python for Dialogflow fulfillment. Using it you can build the JSON objects with few line.
+# description        : This library simplifies the JSON response building in Python for Dialogflow fulfillment.
+#                      Using it you can build the JSON objects with few line.
 # author             : Pragnakalp Techlabs
 # email              : letstalk@pragnakalp.com
 # website            : https://www.pragnakalp.com
-#==============================================================================
+# ==============================================================================
 
 # Responses for Actions On Google
 class actions_on_google_response():
@@ -140,7 +141,8 @@ class actions_on_google_response():
                         "info": {
                             # key of the list items, key is used as user say string
                             "key": list_element[2][0],
-                            # synonyms are the words that can be used as a value for the option when the user types instead of selecting from the list
+                            # synonyms are the words that can be used as a value for the option when the
+                            # user types instead of selecting from the list
                             "synonyms": list_element[2][1]
                         },
                         # list image
@@ -165,7 +167,7 @@ class actions_on_google_response():
     """
     Actions on Google Suggestions chips resoponse
     @param suggestions = list of strings
-    """    
+    """
     def suggestion_chips(self, suggestions):
         # suggestions_json to store the suggestions JSON
         suggestions_json = []
@@ -206,6 +208,7 @@ class actions_on_google_response():
                     "uri": str(url)
                 }
             }
+
 
 # Responses for Facebook
 class facebook_response():
@@ -293,9 +296,10 @@ class facebook_response():
 
         # return custom payload
         return {
-                "payload": payload,
-                "platform": self.platform
-            }
+            "payload": payload,
+            "platform": self.platform
+        }
+
 
 # Responses for Telegram
 class telegram_response():
@@ -378,19 +382,20 @@ class telegram_response():
             "platform": self.platform
         }
 
+
 # Responses for dialogflow messenger
 class web_response():
 
     def __init__(self):
         pass
 
-    def suggestion_chips(self, chips:list):
+    def suggestion_chips(self, chips: list):
         """
         Dialogflow Messenger Suggestion chips Builder
         @param chips=list
         Sample example of display suggestion chips (["suggestion1", "suggestion2", "suggestion3"])
         """
-        
+
         add_chip = []
         for chip in chips:
             add_chip.append({
@@ -419,8 +424,7 @@ class web_response():
                 }
         }
 
-
-    def simple_response(self, simpletext:list):
+    def simple_response(self, simpletext: list):
         """
         Dialogflow Messenger Simple Response Builder
         @param simpletext=list (Note: 2D list always)
@@ -433,15 +437,13 @@ class web_response():
             }
         }
 
-
-    
     def simple_title_card(self, title, sub_title, raw_url, action_link):
         """
         Dialogflow Messenger Simple Title Card Response Builder
         @param title=str, sub_title=str, rowUrl=str, action_link=str.
         Sample example of display_text ex. simple_title_card("Title","Subtitle","www.xyz.com","www.abc.com")
         """
-    
+
         simple_title_cards = []
         simple_title_cards.append({
             "type": "info",
@@ -485,14 +487,13 @@ class web_response():
                 }
         }
 
-
     def image_response(self, raw_url, accessibility_text):
         """
         Dialogflow Messenger Image Card Response Builder
         @param rowUrl=str, accessibility_text=str.
         Sample example of display_text ex. image_card("www.url.com","Sample Text")
         """
-        
+
         return{
             "payload":
                 {
@@ -516,7 +517,7 @@ class web_response():
         @param text=str, link=str.
         Sample example of display_text ex. small_button("Sample Text","www.url.com")
         """
-        
+
         return{
             "payload":
                 {
@@ -542,14 +543,14 @@ class web_response():
                 }
         }
 
-
-    def card_with_multiple_options(self, data:list):
+    def card_with_multiple_options(self, data: list):
         """
         Dialogflow Messenger Card With Multiple Options Response Builder
         @param data=list of dict
-        Sample example of display_text ex. card_with_multiple_options([{"title" : "title1", "subtitle" : "subtitle1"}, { "title" : "title2", "subtitle" : "subtitle2"}])
+        Sample example of display_text ex. card_with_multiple_options(
+            [{"title" : "title1", "subtitle" : "subtitle1"}, { "title" : "title2", "subtitle" : "subtitle2"}])
         """
-        
+
         one_card_option = []
         for i in range(len(data)):
             one_card_option.append({
@@ -567,7 +568,7 @@ class web_response():
                     {
                         "type": "divider"
                     })
-                
+
         return {
             "payload": {
                 "richContent":
@@ -583,7 +584,7 @@ class web_response():
         @param title=str, sub_title=str, rawUrl=str, text=str.
         Sample example of display_text ex. accordion_small_card("Title","Subtitle","www.xyz.com","Sample Text")
         """
-    
+
         return {
             "payload": {
                 "richContent": [
@@ -604,6 +605,7 @@ class web_response():
             }
         }
 
+
 # dialogflow fulfillment response
 class fulfillment_response():
 
@@ -612,7 +614,7 @@ class fulfillment_response():
 
     # fulfillment text builder
     # @param fulfillmentText = string
-    def fulfillment_text(self, fulfillmentText):        
+    def fulfillment_text(self, fulfillmentText):
         if fulfillmentText == "":
             raise Exception("Fulfillment text should not be empty.")
         else:
@@ -664,7 +666,13 @@ class fulfillment_response():
     # @param fulfillment_messages = fulfillment_messages JSON
     # @param output_contexts = output_contexts JSON
     # @param followup_event_input = followup_event_input JSON
-    def main_response(self, fulfillment_text, fulfillment_messages=None, output_contexts=None, followup_event_input=None):
+    def main_response(
+        self,
+        fulfillment_text,
+        fulfillment_messages=None,
+        output_contexts=None,
+        followup_event_input=None
+    ):
         if followup_event_input is not None:
             if output_contexts is not None:
                 if fulfillment_messages is not None:
@@ -717,4 +725,57 @@ class fulfillment_response():
                     }
 
         # return the main dialogflow response
+        return response
+
+
+# Responses for Google Hanghouts
+class google_hangouts_response():
+
+    # class variable initializer initializer
+    def __init__(self):
+        self.platform = "GOOGLE_HANGOUTS"
+
+    """"
+    Google Hangout Card Builder
+    @param title = string
+    @param subtitle = string
+    @param image = list [image_url, accessibility_text]
+    @param buttons = list of [button_title, url_link]
+    """
+    def card(self, title, subtitle="", image=None, buttons=None):
+        # list to store buttons responses
+        buttons_json = []
+        if buttons is not None:
+            # add the buttons response to the buttons list
+            buttons_json.append(
+                {
+                    # title of the button
+                    "text": buttons[0],
+                    # url to be opened by the button
+                    "postback": buttons[1]
+                }
+            )
+
+            # return card JSON
+            response = {
+                "card": {
+                    "title": title,
+                    "subtitle": subtitle,
+                    "imageUri": image[0],
+                    "buttons": buttons_json
+                },
+                "platform": self.platform,
+            }
+
+        else:
+            # return basic card JSON
+            response = {
+                "card": {
+                    "title": title,
+                    "subtitle": subtitle,
+                    "imageUri": image[0],
+                    "buttons": buttons_json
+                },
+                "platform": self.platform,
+            }
         return response
